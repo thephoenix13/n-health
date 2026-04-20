@@ -3,8 +3,10 @@ import Link from 'next/link'
 import Layout from '../components/Layout'
 import { AFFIRMATIONS, FACTS } from '../lib/content'
 
-export default function Home({ dayIndex }) {
+export default function Home({ affirmation }) {
   const [greeting, setGreeting] = useState('Hello')
+  const [modalOpen, setModalOpen] = useState(false)
+  const [currentFact, setCurrentFact] = useState('')
 
   useEffect(() => {
     const hour = new Date().getHours()
@@ -14,8 +16,14 @@ export default function Home({ dayIndex }) {
     else setGreeting('Hey, night owl')
   }, [])
 
-  const affirmation = AFFIRMATIONS[dayIndex % AFFIRMATIONS.length]
-  const fact = FACTS[dayIndex % FACTS.length]
+  const handleBulbClick = () => {
+    let newFact
+    do {
+      newFact = FACTS[Math.floor(Math.random() * FACTS.length)]
+    } while (newFact === currentFact && FACTS.length > 1)
+    setCurrentFact(newFact)
+    setModalOpen(true)
+  }
 
   return (
     <Layout>
@@ -27,19 +35,13 @@ export default function Home({ dayIndex }) {
       </div>
 
       {/* Affirmation */}
-      <div className="rounded-3xl p-6 mb-4 border" style={{ background: 'rgba(88, 28, 135, 0.25)', borderColor: 'rgba(147, 51, 234, 0.35)' }}>
+      <div className="rounded-3xl p-6 mb-10 border" style={{ background: 'rgba(88, 28, 135, 0.25)', borderColor: 'rgba(147, 51, 234, 0.35)' }}>
         <p className="text-xs font-black text-purple-400 uppercase tracking-widest mb-3">✨ Today's thought</p>
         <p className="text-lg font-bold text-purple-100 leading-relaxed">"{affirmation}"</p>
       </div>
 
-      {/* Fact of the day */}
-      <div className="rounded-3xl p-6 mb-10 border" style={{ background: 'rgba(120, 53, 15, 0.25)', borderColor: 'rgba(217, 119, 6, 0.35)' }}>
-        <p className="text-xs font-black text-amber-400 uppercase tracking-widest mb-3">🌟 Did you know?</p>
-        <p className="text-base font-semibold text-amber-100 leading-relaxed">{fact}</p>
-      </div>
-
-      {/* Nav cards — Grocery first */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      {/* Nav cards — 2 column */}
+      <div className="grid grid-cols-2 gap-4">
         <Link
           href="/grocery"
           className="rounded-3xl p-5 border hover:shadow-lg hover:-translate-y-1 transition-all"
@@ -59,13 +61,47 @@ export default function Home({ dayIndex }) {
           <p className="text-emerald-400 text-sm font-medium">Your nourishing week</p>
         </Link>
       </div>
+
+      {/* Floating bulb */}
+      <button
+        onClick={handleBulbClick}
+        className="bulb-btn fixed bottom-6 right-6 w-14 h-14 rounded-full flex items-center justify-center text-2xl z-40 transition-transform hover:scale-110"
+        style={{ background: 'rgba(251, 191, 36, 0.15)', border: '2px solid rgba(251, 191, 36, 0.45)' }}
+        aria-label="Did you know?"
+      >
+        💡
+      </button>
+
+      {/* Modal */}
+      {modalOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          style={{ background: 'rgba(0,0,0,0.75)', backdropFilter: 'blur(6px)' }}
+          onClick={() => setModalOpen(false)}
+        >
+          <div
+            className="max-w-sm w-full rounded-3xl p-7 relative"
+            style={{ background: '#1a1228', border: '2px solid rgba(251, 191, 36, 0.35)', boxShadow: '0 0 40px rgba(251, 191, 36, 0.1)' }}
+            onClick={e => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setModalOpen(false)}
+              className="absolute top-4 right-5 text-gray-600 hover:text-gray-300 text-lg font-bold transition-colors"
+            >
+              ✕
+            </button>
+            <div className="text-5xl mb-4 text-center">💡</div>
+            <p className="text-xs font-black text-amber-400 uppercase tracking-widest mb-4 text-center">Did you know?</p>
+            <p className="text-base font-semibold text-amber-100 leading-relaxed text-center">{currentFact}</p>
+            <p className="text-xs text-amber-600 text-center mt-5 font-medium">click the bulb again for another one ✨</p>
+          </div>
+        </div>
+      )}
     </Layout>
   )
 }
 
 export async function getServerSideProps() {
-  const now = new Date()
-  const start = new Date(now.getFullYear(), 0, 0)
-  const dayIndex = Math.floor((now - start) / (1000 * 60 * 60 * 24))
-  return { props: { dayIndex } }
+  const affirmation = AFFIRMATIONS[Math.floor(Math.random() * AFFIRMATIONS.length)]
+  return { props: { affirmation } }
 }
