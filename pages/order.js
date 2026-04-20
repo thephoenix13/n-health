@@ -81,6 +81,8 @@ export default function Order() {
   const [mealPeriod, setMealPeriod] = useState('breakfast')
   const [visiblePicks, setVisiblePicks] = useState([])
   const [search, setSearch] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
+  const [isAiPicks, setIsAiPicks] = useState(false)
 
   const getPool = (period, query) => {
     const all = RECOMMENDATIONS[period].picks
@@ -108,12 +110,36 @@ export default function Order() {
   const handleTabChange = (period) => {
     setMealPeriod(period)
     setSearch('')
+    setIsAiPicks(false)
     loadPicks(period)
   }
 
   const handleSearch = (val) => {
     setSearch(val)
+    setIsAiPicks(false)
     loadPicks(mealPeriod, val)
+  }
+
+  const handleSearchSubmit = async () => {
+    if (!search.trim()) return
+    setIsLoading(true)
+    setIsAiPicks(false)
+    try {
+      const res = await fetch('/api/search-food', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query: search.trim(), mealPeriod }),
+      })
+      const data = await res.json()
+      if (data.picks?.length) {
+        setVisiblePicks(data.picks)
+        setIsAiPicks(true)
+      }
+    } catch {
+      // keep existing picks on error
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const handleRefresh = () => {
@@ -167,11 +193,12 @@ export default function Order() {
           type="text"
           value={search}
           onChange={e => handleSearch(e.target.value)}
-          placeholder="I'm in the mood for..."
-          className="w-full pl-10 pr-4 py-3 rounded-2xl text-sm font-semibold text-amber-100 placeholder-amber-700 outline-none focus:ring-1 focus:ring-amber-500/50 transition-all"
+          onKeyDown={e => e.key === 'Enter' && handleSearchSubmit()}
+          placeholder="I'm in the mood for... (press Enter to search)"
+          className="w-full pl-10 pr-10 py-3 rounded-2xl text-sm font-semibold text-amber-100 placeholder-amber-700 outline-none focus:ring-1 focus:ring-amber-500/50 transition-all"
           style={{ background: 'rgba(120, 53, 15, 0.15)', border: '1px solid rgba(251, 191, 36, 0.2)' }}
         />
-        {search && (
+        {search && !isLoading && (
           <button
             onClick={() => handleSearch('')}
             className="absolute right-4 top-1/2 -translate-y-1/2 text-amber-600 hover:text-amber-300 font-bold text-sm"
@@ -179,11 +206,18 @@ export default function Order() {
             ✕
           </button>
         )}
+        {isLoading && (
+          <span className="absolute right-4 top-1/2 -translate-y-1/2 text-amber-500 text-xs font-bold animate-pulse">
+            searching...
+          </span>
+        )}
       </div>
 
       {/* Top picks header + refresh */}
       <div className="flex items-center justify-between mb-3">
-        <p className="text-xs font-black text-amber-400 uppercase tracking-widest">✨ Top Picks</p>
+        <p className="text-xs font-black text-amber-400 uppercase tracking-widest">
+          {isAiPicks ? '🤖 AI Picks' : '✨ Top Picks'}
+        </p>
         <button
           onClick={handleRefresh}
           className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold text-amber-400 hover:text-amber-200 transition-all hover:bg-amber-900/40"
@@ -215,7 +249,7 @@ export default function Order() {
           </div>
         )) : (
           <div className="rounded-2xl p-5 text-center" style={{ border: '1px dashed rgba(251, 191, 36, 0.2)' }}>
-            <p className="text-amber-600 font-semibold text-sm">No matches found — try something else 🌿</p>
+            <p className="text-amber-600 font-semibold text-sm">Press Enter to search for &ldquo;{search}&rdquo; 🔍</p>
           </div>
         )}
       </div>
