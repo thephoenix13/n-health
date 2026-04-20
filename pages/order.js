@@ -7,11 +7,14 @@ const RECOMMENDATIONS = {
     emoji: '🌅',
     picks: [
       { dish: 'Oatmeal with banana', note: 'Gentle on the stomach, filling, and warming. Ask for honey on the side.', emoji: '🥣', iron: false },
-      { dish: 'Scrambled eggs + toast', note: 'Soft and protein-rich. Add spinach if available — great iron combo with a squeeze of lemon.', emoji: '🍳', iron: true },
+      { dish: 'Scrambled eggs + toast', note: 'Soft and protein-rich. Add spinach if available — great iron combo with lemon.', emoji: '🍳', iron: true },
       { dish: 'Greek yogurt parfait', note: 'Light and quick. Skip the granola if your stomach feels sensitive today.', emoji: '🫙', iron: false },
       { dish: 'Avocado toast', note: 'Good fats, gentle on digestion. Add a poached egg on top if available.', emoji: '🥑', iron: false },
-      { dish: 'Warm porridge with berries', note: 'Soothing and anti-inflammatory. Ask for berries on the side, not blended in.', emoji: '🫐', iron: false },
-      { dish: 'Banana pancakes', note: 'Soft, gentle, and filling. Ask for light syrup or honey instead of heavy toppings.', emoji: '🥞', iron: false },
+      { dish: 'Warm porridge with berries', note: 'Soothing and anti-inflammatory. Ask for berries on the side.', emoji: '🫐', iron: false },
+      { dish: 'Banana pancakes', note: 'Soft, gentle, and filling. Light syrup or honey instead of heavy toppings.', emoji: '🥞', iron: false },
+      { dish: 'Peanut butter toast + warm milk', note: 'Easy, comforting, and calming. Great for slow mornings.', emoji: '🍞', iron: false },
+      { dish: 'Soft boiled eggs + rice porridge', note: 'Very easy on the gut. Perfect if you\'re feeling delicate today.', emoji: '🍚', iron: true },
+      { dish: 'Smoothie bowl', note: 'Ask for it not too cold. Banana, mango, and oat base work well.', emoji: '🥤', iron: false },
     ],
     avoid: ['Spicy items', 'Heavy cream or butter sauces', 'Citrus juices', 'Coffee or espresso drinks', 'Fried foods'],
     restaurants: [
@@ -24,12 +27,15 @@ const RECOMMENDATIONS = {
     label: 'Lunch',
     emoji: '☀️',
     picks: [
-      { dish: 'Chicken soup or broth bowl', note: 'The most restorative option. Look for clear or light broths, not cream-based.', emoji: '🍲', iron: false },
+      { dish: 'Chicken soup or broth bowl', note: 'The most restorative option. Clear or light broths, not cream-based.', emoji: '🍲', iron: false },
       { dish: 'Rice bowl with grilled chicken', note: 'Simple, filling, easy to digest. Ask for steamed veggies on the side.', emoji: '🍚', iron: false },
-      { dish: 'Warm grain bowl', note: 'Good fats, widely available. Go for warm bowls over cold salads.', emoji: '🥗', iron: false },
+      { dish: 'Warm grain bowl', note: 'Go for warm bowls over cold salads. Good fats, widely available.', emoji: '🥗', iron: false },
       { dish: 'Lentil soup + bread', note: 'Iron-rich and filling. One of the best choices for energy today.', emoji: '🥣', iron: true },
-      { dish: 'Grilled cheese + tomato soup', note: 'Comforting and easy to digest. Opt for a light tomato base, not creamy.', emoji: '🧀', iron: false },
+      { dish: 'Grilled cheese + tomato soup', note: 'Comforting and easy to digest. Light tomato base, not creamy.', emoji: '🧀', iron: false },
       { dish: 'Congee or rice porridge', note: 'The gentlest option on this list. Perfect for low-energy days.', emoji: '🍜', iron: false },
+      { dish: 'Quinoa bowl with roasted veggies', note: 'Complete protein, anti-inflammatory. Ask for olive oil dressing.', emoji: '🫘', iron: true },
+      { dish: 'Tuna sandwich on soft bread', note: 'Iron-rich and easy. Ask for light mayo, no raw onion.', emoji: '🥪', iron: true },
+      { dish: 'Miso soup + steamed rice', note: 'Probiotic and very gentle. Great pairing for any energy level.', emoji: '🍱', iron: false },
     ],
     avoid: ['Spicy curries', 'Heavy cream-based dishes', 'Fried items', 'Tomato-heavy sauces', 'Cold raw salads'],
     restaurants: [
@@ -42,12 +48,15 @@ const RECOMMENDATIONS = {
     label: 'Dinner',
     emoji: '🌙',
     picks: [
-      { dish: 'Grilled salmon or white fish', note: 'Anti-inflammatory and iron-rich. Look for lemon-herb or olive oil preparations.', emoji: '🐟', iron: true },
-      { dish: 'Pasta with olive oil or light sauce', note: 'Stick to olive oil, garlic, or white sauce. Avoid heavy tomato-based.', emoji: '🍝', iron: false },
-      { dish: 'Chicken and rice', note: 'Safe, nourishing, easy on digestion. A reliable choice on any energy day.', emoji: '🍗', iron: false },
+      { dish: 'Grilled salmon or white fish', note: 'Anti-inflammatory and iron-rich. Lemon-herb or olive oil preparations.', emoji: '🐟', iron: true },
+      { dish: 'Pasta with olive oil or light sauce', note: 'Olive oil, garlic, or white sauce. Avoid heavy tomato-based.', emoji: '🍝', iron: false },
+      { dish: 'Chicken and rice', note: 'Safe, nourishing, easy on digestion. Reliable on any energy day.', emoji: '🍗', iron: false },
       { dish: 'Miso soup with tofu and rice', note: 'Probiotic, very gentle, and anti-inflammatory. Great for the gut.', emoji: '🍱', iron: false },
-      { dish: 'Baked cod with mashed potato', note: 'Mild white fish, very easy on digestion. Ask for no heavy butter sauce.', emoji: '🥔', iron: false },
-      { dish: 'Veggie stir-fry with rice', note: 'Well-cooked veggies are gentle. Ask for light soy sauce, no chili.', emoji: '🥦', iron: true },
+      { dish: 'Baked cod with mashed potato', note: 'Mild white fish, very easy on digestion. No heavy butter sauce.', emoji: '🥔', iron: false },
+      { dish: 'Veggie stir-fry with rice', note: 'Well-cooked veggies are gentle. Light soy sauce, no chili.', emoji: '🥦', iron: true },
+      { dish: 'Mediterranean chicken bowl', note: 'Grilled chicken, rice, light olive oil dressing. Simple and nourishing.', emoji: '🫙', iron: false },
+      { dish: 'Thai coconut chicken soup', note: 'Light coconut broth, no chili. Warming and easy to digest.', emoji: '🍜', iron: false },
+      { dish: 'Baked sweet potato + grilled chicken', note: 'Gentle, anti-inflammatory, and filling. A great combination.', emoji: '🍠', iron: true },
     ],
     avoid: ['Spicy food', 'Fried dishes', 'Heavy dairy', 'Tomato-heavy curries or pasta', 'Anything too rich or oily'],
     restaurants: [
@@ -64,18 +73,27 @@ function getMealPeriod(hour) {
   return 'dinner'
 }
 
-function pickRandom(arr, n, exclude = []) {
-  const pool = arr.filter(item => !exclude.includes(item))
-  const shuffled = [...pool].sort(() => Math.random() - 0.5)
-  return shuffled.slice(0, n)
+function randomPicks(pool, n = 3) {
+  return [...pool].sort(() => Math.random() - 0.5).slice(0, n)
 }
 
 export default function Order() {
   const [mealPeriod, setMealPeriod] = useState('breakfast')
   const [visiblePicks, setVisiblePicks] = useState([])
+  const [search, setSearch] = useState('')
 
-  const loadPicks = (period) => {
-    setVisiblePicks(pickRandom(RECOMMENDATIONS[period].picks, 3))
+  const getPool = (period, query) => {
+    const all = RECOMMENDATIONS[period].picks
+    if (!query.trim()) return all
+    const q = query.toLowerCase()
+    return all.filter(p =>
+      p.dish.toLowerCase().includes(q) || p.note.toLowerCase().includes(q)
+    )
+  }
+
+  const loadPicks = (period, query = '') => {
+    const pool = getPool(period, query)
+    setVisiblePicks(pool.length > 0 ? randomPicks(pool) : [])
   }
 
   useEffect(() => {
@@ -89,11 +107,29 @@ export default function Order() {
 
   const handleTabChange = (period) => {
     setMealPeriod(period)
+    setSearch('')
     loadPicks(period)
   }
 
+  const handleSearch = (val) => {
+    setSearch(val)
+    loadPicks(mealPeriod, val)
+  }
+
   const handleRefresh = () => {
-    setVisiblePicks(prev => pickRandom(RECOMMENDATIONS[mealPeriod].picks, 3, prev))
+    const pool = getPool(mealPeriod, search)
+    if (pool.length === 0) return
+    let next
+    let attempts = 0
+    do {
+      next = randomPicks(pool)
+      attempts++
+    } while (
+      attempts < 20 &&
+      next.length === visiblePicks.length &&
+      next.every(p => visiblePicks.find(v => v.dish === p.dish))
+    )
+    setVisiblePicks(next)
   }
 
   const rec = RECOMMENDATIONS[mealPeriod]
@@ -107,7 +143,7 @@ export default function Order() {
       </div>
 
       {/* Meal period tabs */}
-      <div className="flex gap-2 mb-7">
+      <div className="flex gap-2 mb-6">
         {Object.entries(RECOMMENDATIONS).map(([key, val]) => (
           <button
             key={key}
@@ -124,6 +160,27 @@ export default function Order() {
         ))}
       </div>
 
+      {/* Search input */}
+      <div className="relative mb-7">
+        <span className="absolute left-4 top-1/2 -translate-y-1/2 text-amber-600">🔍</span>
+        <input
+          type="text"
+          value={search}
+          onChange={e => handleSearch(e.target.value)}
+          placeholder="I'm in the mood for..."
+          className="w-full pl-10 pr-4 py-3 rounded-2xl text-sm font-semibold text-amber-100 placeholder-amber-700 outline-none focus:ring-1 focus:ring-amber-500/50 transition-all"
+          style={{ background: 'rgba(120, 53, 15, 0.15)', border: '1px solid rgba(251, 191, 36, 0.2)' }}
+        />
+        {search && (
+          <button
+            onClick={() => handleSearch('')}
+            className="absolute right-4 top-1/2 -translate-y-1/2 text-amber-600 hover:text-amber-300 font-bold text-sm"
+          >
+            ✕
+          </button>
+        )}
+      </div>
+
       {/* Top picks header + refresh */}
       <div className="flex items-center justify-between mb-3">
         <p className="text-xs font-black text-amber-400 uppercase tracking-widest">✨ Top Picks</p>
@@ -132,12 +189,12 @@ export default function Order() {
           className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold text-amber-400 hover:text-amber-200 transition-all hover:bg-amber-900/40"
           style={{ border: '1px solid rgba(251, 191, 36, 0.25)' }}
         >
-          <span>↺</span> Show me others
+          ↺ Show me others
         </button>
       </div>
 
       <div className="flex flex-col gap-3 mb-7">
-        {visiblePicks.map((pick, i) => (
+        {visiblePicks.length > 0 ? visiblePicks.map((pick, i) => (
           <div
             key={i}
             className="rounded-2xl p-4 border flex gap-4 items-start"
@@ -156,7 +213,11 @@ export default function Order() {
               <p className="text-sm text-amber-100/70 leading-relaxed">{pick.note}</p>
             </div>
           </div>
-        ))}
+        )) : (
+          <div className="rounded-2xl p-5 text-center" style={{ border: '1px dashed rgba(251, 191, 36, 0.2)' }}>
+            <p className="text-amber-600 font-semibold text-sm">No matches found — try something else 🌿</p>
+          </div>
+        )}
       </div>
 
       {/* Avoid */}
