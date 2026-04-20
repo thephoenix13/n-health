@@ -58,15 +58,6 @@ export default function Home({ dayIndex }) {
           <h2 className="font-black text-emerald-200 text-base mb-1">Meal Plan</h2>
           <p className="text-emerald-400 text-sm font-medium">Your nourishing week</p>
         </Link>
-        <Link
-          href="/memory"
-          className="rounded-3xl p-5 border hover:shadow-lg hover:-translate-y-1 transition-all"
-          style={{ background: 'rgba(12, 74, 110, 0.25)', borderColor: 'rgba(14, 165, 233, 0.35)' }}
-        >
-          <div className="text-3xl mb-3">📝</div>
-          <h2 className="font-black text-sky-200 text-base mb-1">Notes</h2>
-          <p className="text-sky-400 text-sm font-medium">Things to remember</p>
-        </Link>
       </div>
     </Layout>
   )
