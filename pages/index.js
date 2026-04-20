@@ -49,7 +49,7 @@ export default function Home({ affirmation }) {
       </div>
 
       {/* Nav cards — 2 column */}
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-2 gap-4 mb-4">
         <Link
           href="/grocery"
           className="rounded-3xl p-5 border hover:shadow-lg hover:-translate-y-1 transition-all"
@@ -69,6 +69,21 @@ export default function Home({ affirmation }) {
           <p className="text-emerald-400 text-sm font-medium">Your nourishing week</p>
         </Link>
       </div>
+
+      {/* Order card — full width */}
+      <Link
+        href="/order"
+        className="block rounded-3xl p-5 border hover:shadow-lg hover:-translate-y-1 transition-all"
+        style={{ background: 'rgba(120, 53, 15, 0.2)', borderColor: 'rgba(251, 191, 36, 0.3)' }}
+      >
+        <div className="flex items-center gap-3">
+          <div className="text-3xl">🍽️</div>
+          <div>
+            <h2 className="font-black text-amber-200 text-base mb-0.5">What to Order Today</h2>
+            <p className="text-amber-400 text-sm font-medium">DoorDash & Uber Eats picks for Boston</p>
+          </div>
+        </div>
+      </Link>
 
       {/* Floating bulb */}
       <button

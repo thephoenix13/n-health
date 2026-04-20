@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 const navItems = [
   { href: '/grocery', label: '🛒 Grocery' },
   { href: '/meal-plan', label: '🥗 Meals' },
+  { href: '/order', label: '🍽️ Order' },
 ]
 
 export default function Layout({ children }) {
