@@ -8,11 +8,12 @@ export default function Memory({ content }) {
     <Layout>
       <div className="mb-8">
         <div className="text-4xl mb-2">📝</div>
-        <h1 className="text-2xl font-black text-sky-800">Notes</h1>
+        <h1 className="text-2xl font-black text-sky-300">Notes</h1>
         <p className="text-sky-500 font-semibold mt-1">A running log of things to keep in mind</p>
       </div>
       <div
-        className="markdown-content bg-white rounded-3xl p-6 shadow-sm border border-sky-100"
+        className="markdown-content rounded-3xl p-6 border"
+        style={{ background: 'rgba(10, 15, 22, 0.8)', borderColor: 'rgba(14, 165, 233, 0.2)' }}
         dangerouslySetInnerHTML={{ __html: content }}
       />
     </Layout>

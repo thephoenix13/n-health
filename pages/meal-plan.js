@@ -8,11 +8,12 @@ export default function MealPlan({ content }) {
     <Layout>
       <div className="mb-8">
         <div className="text-4xl mb-2">🥗</div>
-        <h1 className="text-2xl font-black text-emerald-800">Meal Plan</h1>
+        <h1 className="text-2xl font-black text-emerald-300">Meal Plan</h1>
         <p className="text-emerald-500 font-semibold mt-1">A week of gentle, nourishing meals</p>
       </div>
       <div
-        className="markdown-content bg-white rounded-3xl p-6 shadow-sm border border-emerald-100"
+        className="markdown-content rounded-3xl p-6 border"
+        style={{ background: 'rgba(15, 20, 18, 0.8)', borderColor: 'rgba(16, 185, 129, 0.2)' }}
         dangerouslySetInnerHTML={{ __html: content }}
       />
     </Layout>

@@ -2,8 +2,8 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 const navItems = [
-  { href: '/meal-plan', label: '🥗 Meals' },
   { href: '/grocery', label: '🛒 Grocery' },
+  { href: '/meal-plan', label: '🥗 Meals' },
   { href: '/memory', label: '📝 Notes' },
 ]
 
@@ -11,11 +11,11 @@ export default function Layout({ children }) {
   const router = useRouter()
 
   return (
-    <div className="min-h-screen" style={{ background: 'linear-gradient(135deg, #fdf8f0 0%, #f3effe 50%, #edf9f0 100%)' }}>
-      <nav className="sticky top-0 z-10 backdrop-blur-sm bg-white/70 border-b border-purple-100">
+    <div className="min-h-screen" style={{ background: 'linear-gradient(135deg, #0d0b18 0%, #150e28 50%, #0b1520 100%)' }}>
+      <nav className="sticky top-0 z-10 backdrop-blur-sm border-b" style={{ background: 'rgba(15, 12, 24, 0.85)', borderColor: 'rgba(139, 92, 246, 0.2)' }}>
         <div className="max-w-3xl mx-auto px-4 py-3 flex items-center justify-between">
-          <Link href="/" className="font-black text-purple-700 text-lg tracking-tight">
-            n ✨
+          <Link href="/" className="font-black text-purple-300 text-lg tracking-tight">
+            Hi Nida ✨
           </Link>
           <div className="flex gap-1">
             {navItems.map((item) => (
@@ -25,7 +25,7 @@ export default function Layout({ children }) {
                 className={`px-3 py-1.5 rounded-full text-sm font-bold transition-all ${
                   router.pathname === item.href
                     ? 'bg-purple-600 text-white shadow-sm'
-                    : 'text-purple-600 hover:bg-purple-100'
+                    : 'text-purple-300 hover:bg-purple-900/50'
                 }`}
               >
                 {item.label}
