@@ -104,7 +104,10 @@ export default function Order() {
   const [mealPeriod, setMealPeriod] = useState('breakfast')
 
   useEffect(() => {
-    setMealPeriod(getMealPeriod(new Date().getHours()))
+    const bostonHour = parseInt(
+      new Date().toLocaleString('en-US', { timeZone: 'America/New_York', hour: 'numeric', hour12: false })
+    )
+    setMealPeriod(getMealPeriod(bostonHour))
   }, [])
 
   const rec = RECOMMENDATIONS[mealPeriod]
