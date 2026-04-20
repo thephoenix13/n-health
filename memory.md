@@ -10,6 +10,7 @@ This file serves as a running log of conversations and notes in this discussion 
 - Reviewing medical reports for friend **N (Nida Kazi)**, 32F.
 - Known conditions: SLE, Fatigue, Depression, Anxiety, ADHD, Food Infection, Gastritis.
 - Referred by Dr. Sanjay Salunke.
+- Currently living in **Boston, USA** (as of April 2026).
 
 ---
 
