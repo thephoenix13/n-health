@@ -29,7 +29,15 @@ export default function Home({ affirmation }) {
     <Layout>
       {/* Header */}
       <div className="text-center mb-10">
-        <div className="text-6xl mb-4">🌸</div>
+        <div className="flex justify-center mb-4">
+          <svg viewBox="0 0 100 100" width="72" height="72" xmlns="http://www.w3.org/2000/svg">
+            {[0, 72, 144, 216, 288].map((angle, i) => (
+              <ellipse key={i} cx="50" cy="24" rx="7" ry="20" fill="white" opacity="0.88" transform={`rotate(${angle}, 50, 50)`} />
+            ))}
+            <circle cx="50" cy="50" r="10" fill="#fde68a" />
+            <circle cx="50" cy="50" r="6" fill="#f59e0b" />
+          </svg>
+        </div>
         <h1 className="text-3xl font-black text-purple-200 mb-2">{greeting}, Nida</h1>
         <p className="text-purple-400 font-semibold">A little something to brighten your day.</p>
       </div>
