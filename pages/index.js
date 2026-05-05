@@ -85,6 +85,21 @@ export default function Home({ affirmation }) {
         </div>
       </Link>
 
+      {/* Dopamine Menu card — full width */}
+      <Link
+        href="/dopamine-menu"
+        className="block rounded-3xl p-5 border hover:shadow-lg hover:-translate-y-1 transition-all mt-4"
+        style={{ background: 'rgba(131, 24, 67, 0.2)', borderColor: 'rgba(236, 72, 153, 0.3)' }}
+      >
+        <div className="flex items-center gap-3">
+          <div className="text-3xl">🌈</div>
+          <div>
+            <h2 className="font-black text-pink-200 text-base mb-0.5">Dopamine Menu</h2>
+            <p className="text-pink-400 text-sm font-medium">Pick something good when you need it</p>
+          </div>
+        </div>
+      </Link>
+
       {/* Floating bulb */}
       <button
         onClick={handleBulbClick}

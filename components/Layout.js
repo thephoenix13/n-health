@@ -5,6 +5,7 @@ const navItems = [
   { href: '/grocery', label: '🛒 Grocery' },
   { href: '/meal-plan', label: '🥗 Meals' },
   { href: '/order', label: '🍽️ Order' },
+  { href: '/dopamine-menu', label: '🌈 Dopamine' },
 ]
 
 export default function Layout({ children }) {
