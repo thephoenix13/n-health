@@ -3,8 +3,9 @@ import Link from 'next/link'
 import Layout from '../components/Layout'
 import { AFFIRMATIONS, FACTS } from '../lib/content'
 
-export default function Home({ affirmation }) {
+export default function Home() {
   const [greeting, setGreeting] = useState('Hello')
+  const [affirmation, setAffirmation] = useState('')
   const [modalOpen, setModalOpen] = useState(false)
   const [currentFact, setCurrentFact] = useState('')
 
@@ -14,6 +15,7 @@ export default function Home({ affirmation }) {
     else if (hour >= 12 && hour < 17) setGreeting('Good afternoon')
     else if (hour >= 17 && hour < 22) setGreeting('Good evening')
     else setGreeting('Hey, night owl')
+    setAffirmation(AFFIRMATIONS[Math.floor(Math.random() * AFFIRMATIONS.length)])
   }, [])
 
   const handleBulbClick = () => {
@@ -139,7 +141,3 @@ export default function Home({ affirmation }) {
   )
 }
 
-export async function getServerSideProps() {
-  const affirmation = AFFIRMATIONS[Math.floor(Math.random() * AFFIRMATIONS.length)]
-  return { props: { affirmation } }
-}
